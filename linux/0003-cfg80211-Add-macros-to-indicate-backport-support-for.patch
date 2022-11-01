@@ -1,0 +1,37 @@
+From 1ce054cb806bb30791b0af35aacd41b94cfd232c Mon Sep 17 00:00:00 2001
+From: Pandi Vijayaraj <Pandi.Vijayaraj@telit.com>
+Date: Mon, 20 Jun 2022 10:38:47 +0530
+Subject: [PATCH] cfg80211: Add macros to indicate backport support for FILS
+
+This change adds three macros, one to indicate backport support for the
+new connect done event which takes connection response parameters as a
+structure instead of function arguments. Second macro is to indicate
+backport support for FILS shared key authentication offload to
+driver and last is to indicate the use of new connect response api.
+Changes pulled from msm4.4 branch with following Change-Id:
+I6fb562741bb2abacbe1c7c7ffbf4b2afb25e555b
+---
+ include/net/cfg80211.h | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/include/net/cfg80211.h b/include/net/cfg80211.h
+index 271c7108d4a1..26404d47c392 100644
+--- a/include/net/cfg80211.h
++++ b/include/net/cfg80211.h
+@@ -65,6 +65,13 @@
+  * structures here describe these capabilities in detail.
+  */
+ 
++/* Indicate backport support for the new connect done api */
++#define CFG80211_CONNECT_DONE 1
++/* Indicate backport support for FILS SK offload in cfg80211 */
++#define CFG80211_FILS_SK_OFFLOAD_SUPPORT 1
++/* Indicate support for new cfg80211_connect_bss api */
++#define CFG80211_CONNECT_BSS 1
++
+ struct wiphy;
+ 
+ /*
+-- 
+2.25.1
+

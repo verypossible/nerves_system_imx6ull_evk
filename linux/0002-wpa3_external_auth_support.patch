@@ -1,0 +1,39 @@
+From f99ab9dc97c2cddf8fc22333b86a5b563030079e Mon Sep 17 00:00:00 2001
+From: Pandi Vijayaraj <Pandi.Vijayaraj@telit.com>
+Date: Mon, 20 Jun 2022 10:37:04 +0530
+Subject: [PATCH] wpa3_external_auth_support
+
+---
+ include/net/cfg80211.h | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/include/net/cfg80211.h b/include/net/cfg80211.h
+index a97b3da77772..271c7108d4a1 100644
+--- a/include/net/cfg80211.h
++++ b/include/net/cfg80211.h
+@@ -22,6 +22,12 @@
+ #include <linux/net.h>
+ #include <net/regulatory.h>
+ 
++/* Indicate backport support for external authentication in AP mode */
++#define CFG80211_EXTERNAL_AUTH_AP_SUPPORT 1
++
++/* Indicate backport support for DH IE creation/update*/
++#define CFG80211_EXTERNAL_DH_UPDATE_SUPPORT 1
++
+ /**
+  * DOC: Introduction
+  *
+@@ -65,6 +71,9 @@ struct wiphy;
+  * wireless hardware capability structures
+  */
+ 
++/* Indicate backport support for external authentication*/
++#define CFG80211_EXTERNAL_AUTH_SUPPORT 1
++
+ /**
+  * enum ieee80211_channel_flags - channel flags
+  *
+-- 
+2.25.1
+
